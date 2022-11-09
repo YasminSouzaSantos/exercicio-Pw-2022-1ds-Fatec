@@ -1,0 +1,94 @@
+1.	 Função Nomeada;
+function minhaFuncao(objeto) {
+  objeto.make = "Toyota";
+}
+
+var meucarro = {make: "Honda", model: "Accord", year: 1998};
+var x, y;
+
+x = meucarro.make;     // x recebe o valor "Honda"
+
+minhaFuncao(meucarro);
+y = meucarro.make;     // y recebe o valor "Toyota"
+                    // (a propriedade make foi alterada pela função)
+
+2.	         . Função Nomeada com argumento(parâmetro) e retorno;
+Exemplo:
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Apostila JavaScript Progressivo</title>
+ </head>
+ <body>
+  <script type="text/javascript">
+   document.write("O quadrado de 2 é: ");
+   document.write( quadrado(2) ); 
+
+   function quadrado(numero)
+   {
+    var resposta = numero * numero;
+    return resposta;
+   }
+  </script>
+ </body>
+</html>
+
+3.	         . Função com Construtor;
+class Quadrado extends Poligono {
+  constructor(comprimento) {
+    // super chama o construtor da classe pai que vai atribuir comprimento para
+    // os atributos comprimento e altura herdados pela nossa classe filha Quadrado
+    super(comprimento, comprimento);
+    // Nas classes filhas, super() deve ser chamado antes de usar o this. Sem ele
+    // vai ocorrer um erro de referência. O this agora se refere a classe filha Quadrado
+    this.nome = 'Quadrado';
+  }
+
+  // os atributos a seguir são herdados da classe pai Poligono: altura, comprimento e area.
+
+  get area() {
+    return this.altura * this.comprimento;
+  }
+
+  set area(valor) {
+    this.area = valor;
+  }
+}
+
+4.	         . Função Literal (variável);
+function minhaFuncao(objeto) {
+   objeto.marca = "Toyota";
+ }
+
+ /*
+  * Declare a variável 'meucarro';
+  * crie e inicialize um novo Objeto;
+  * atribua referência para 'meucarro'
+  */
+ var meucarro = {
+   marca: "Honda",
+   modelo: "Accord",
+   ano: 1998
+ };
+
+ /* Exibe 'Honda' */
+ console.log(meucarro.marca);
+
+ /* Passe a referência do objeto para a função */
+ minhaFuncao(meucarro);
+
+ /*
+  * Exibe 'Toyota' como valor para a propriedade 'marca'
+  * do objeto, mudado pela função.
+  */
+ console.log(meucarro.marca);
+
+5.	         . Função de Flecha(Arrow functions)
+const materials = [
+  'Hydrogen',
+  'Helium',
+  'Lithium',
+  'Beryllium'
+];
+
+console.log(materials.map(material => material.length))
